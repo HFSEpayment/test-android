@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="?attr/actionBarSize">
+
+
+
+        <RadioGroup
+            android:id="@+id/buildTypeRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/merchantIdEditText"
+            app:layout_constraintStart_toStartOf="@id/merchantIdEditText"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/debugRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="DEBUG" />
+
+            <RadioButton
+                android:id="@+id/preprodRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PREPROD" />
+
+            <RadioButton
+                android:id="@+id/prodRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PROD" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/merchantIdEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/hb_margin_large"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:layout_marginEnd="@dimen/hb_margin_large"
+            android:hint="Merchant ID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buildTypeRadioGroup" />
+
+        <EditText
+            android:id="@+id/merchantNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:hint="Merchant Name"
+            app:layout_constraintEnd_toEndOf="@id/merchantIdEditText"
+            app:layout_constraintStart_toStartOf="@id/merchantIdEditText"
+            app:layout_constraintTop_toBottomOf="@id/merchantIdEditText" />
+
+        <EditText
+            android:id="@+id/clientIdEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:hint="Client ID"
+            app:layout_constraintEnd_toEndOf="@id/merchantNameEditText"
+            app:layout_constraintStart_toStartOf="@id/merchantNameEditText"
+            app:layout_constraintTop_toBottomOf="@id/merchantNameEditText" />
+
+        <EditText
+            android:id="@+id/clientSecretEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:hint="Client Secret"
+            app:layout_constraintEnd_toEndOf="@id/clientIdEditText"
+            app:layout_constraintStart_toStartOf="@id/clientIdEditText"
+            app:layout_constraintTop_toBottomOf="@id/clientIdEditText" />
+
+        <EditText
+            android:id="@+id/invoiceIdEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:hint="Invoice Id"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="@id/clientSecretEditText"
+            app:layout_constraintStart_toStartOf="@id/clientSecretEditText"
+            app:layout_constraintTop_toBottomOf="@id/clientSecretEditText" />
+
+        <EditText
+            android:id="@+id/amountEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:hint="Payment Amount in KZT"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="@id/invoiceIdEditText"
+            app:layout_constraintStart_toStartOf="@id/invoiceIdEditText"
+            app:layout_constraintTop_toBottomOf="@id/invoiceIdEditText" />
+
+        <TextView
+            android:id="@+id/isRecurrentTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:layout_marginEnd="@dimen/hb_margin_large"
+            android:layout_marginRight="@dimen/hb_margin_large"
+            android:text="Is recurrent payment?"
+            android:textSize="@dimen/hb_text_large"
+            app:layout_constraintEnd_toStartOf="@id/isRecurrentSwitch"
+            app:layout_constraintStart_toStartOf="@id/amountEditText"
+            app:layout_constraintTop_toBottomOf="@id/amountEditText" />
+
+        <Switch
+            android:id="@+id/isRecurrentSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/hb_margin_large"
+            android:layout_marginRight="@dimen/hb_margin_large"
+            app:layout_constraintBottom_toBottomOf="@id/isRecurrentTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/isRecurrentTextView"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <RadioGroup
+            android:id="@+id/frequencyRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/amountEditText"
+            app:layout_constraintStart_toStartOf="@id/amountEditText"
+            app:layout_constraintTop_toBottomOf="@id/isRecurrentTextView">
+
+            <RadioButton
+                android:id="@+id/weeklyRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WEEKLY" />
+
+            <RadioButton
+                android:id="@+id/monthlyRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MONTHLY" />
+
+            <RadioButton
+                android:id="@+id/quarterlyRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="QUARTERLY" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:gravity="center"
+            android:text="No payment yet"
+            android:textColor="#03034B"
+            android:textSize="@dimen/hb_text_large"
+            app:layout_constraintEnd_toEndOf="@id/frequencyRadioGroup"
+            app:layout_constraintStart_toStartOf="@id/frequencyRadioGroup"
+            app:layout_constraintTop_toBottomOf="@id/frequencyRadioGroup" />
+
+        <TextView
+            android:id="@+id/cardIdTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_tiny"
+            android:gravity="center"
+            android:textColor="#00A8FF"
+            android:textSize="@dimen/hb_text_small"
+            app:layout_constraintEnd_toEndOf="@id/resultTextView"
+            app:layout_constraintStart_toStartOf="@id/resultTextView"
+            app:layout_constraintTop_toBottomOf="@id/resultTextView"
+            tools:text="cardID: 12345" />
+
+        <Button
+            android:id="@+id/p2pPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:padding="16dp"
+            android:text="P2P to phone number"
+            app:layout_constraintEnd_toEndOf="@id/resultTextView"
+            app:layout_constraintStart_toStartOf="@id/resultTextView"
+            app:layout_constraintTop_toBottomOf="@id/cardIdTextView" />
+
+        <Button
+            android:id="@+id/cardID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:padding="16dp"
+            android:text="CardId to CardId"
+            app:layout_constraintEnd_toEndOf="@id/resultTextView"
+            app:layout_constraintStart_toStartOf="@id/resultTextView"
+            app:layout_constraintTop_toBottomOf="@id/p2pPhone" />
+
+        <Button
+            android:id="@+id/p2pButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:padding="16dp"
+            android:text="P2P"
+            app:layout_constraintEnd_toEndOf="@id/resultTextView"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/resultTextView"
+            app:layout_constraintTop_toBottomOf="@id/cardID" />
+
+        <Button
+            android:id="@+id/aftButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:padding="16dp"
+            android:text="AFT"
+            app:layout_constraintEnd_toEndOf="@id/resultTextView"
+            app:layout_constraintStart_toStartOf="@id/resultTextView"
+            app:layout_constraintTop_toBottomOf="@id/p2pButton" />
+
+        <Button
+            android:id="@+id/octButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:padding="16dp"
+            android:text="OCT"
+            app:layout_constraintEnd_toEndOf="@id/resultTextView"
+            app:layout_constraintStart_toStartOf="@id/resultTextView"
+            app:layout_constraintTop_toBottomOf="@id/aftButton" />
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:padding="16dp"
+            android:text="Reset"
+            app:layout_constraintEnd_toEndOf="@id/octButton"
+            app:layout_constraintStart_toStartOf="@id/octButton"
+            app:layout_constraintTop_toBottomOf="@id/octButton" />
+
+        <Button
+            android:id="@+id/proceedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:layout_marginBottom="@dimen/hb_margin_large"
+            android:padding="16dp"
+            android:text="PROCEED TO PAYMENT"
+            app:layout_constraintEnd_toEndOf="@id/resetButton"
+            app:layout_constraintStart_toStartOf="@id/resetButton"
+            app:layout_constraintTop_toBottomOf="@id/resetButton" />
+
+        <Button
+            android:id="@+id/masterPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/hb_margin_large"
+            android:padding="16dp"
+            android:text="MasterPass"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/proceedButton"
+            app:layout_constraintStart_toStartOf="@id/proceedButton"
+            app:layout_constraintTop_toBottomOf="@id/proceedButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
