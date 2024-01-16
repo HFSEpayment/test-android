@@ -20,79 +20,6 @@ import com.ss.halykepay.data.model.MasterPass
 import com.ss.halykepay.data.model.MasterPassAction
 import com.ss.halykepay.data.model.MasterPassCardData
 
-//class MainActivity : AppCompatActivity() {
-//
-//    private lateinit var binding: ActivityMainBinding
-//    private lateinit var halykEpaySdk: HalykEpaySDK
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        binding.test.setOnClickListener {
-//            openPayment()
-//        }
-//
-//        val navView: BottomNavigationView = binding.navView
-//
-//        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
-//    }
-//    private fun openPayment() {
-//        println("test")
-////        private const val DEBUG_MERCHANT_ID = "67e34d63-102f-4bd1-898e-370781d0074d"
-////        private const val DEBUG_MERCHANT_NAME = "UberFlower"
-////        private const val DEBUG_CLIENT_ID = "test"
-////        private const val DEBUG_CLIENT_SECRET = "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG"
-//
-//        val config = AuthConfig(
-//            merchantID = "67e34d63-102f-4bd1-898e-370781d0074d",
-//            merchantName = "UberFlower",
-//            clientID = "test",
-//            clientSecret = "yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG"
-//        )
-//        val invoice = Invoice(
-//            id = "4984984899848",
-//            amount = 100.0,
-//            currency = "KZT",
-//            accountID = "uuid023001",
-//            description = "test payment",
-//            postLink = "https://testmerchant/order/1123",
-//            backLink = "https://testmerchant/order/1123",
-//            failurePostLink = "https://testmerchant/order/1123/fail",
-//            isRecurrent = false,
-//            homebankToken = "9FZYVXC4PZCSUFBKQ5PZKW",
-//            isP2P = true,
-//            isAFT = false,
-//            isOCT = false,
-//            cardId = null,
-//            isP2PPhone = false,
-//            failureBackLink = "test"
-//        )
-//
-//        halykEpaySdk = HalykEpaySDK.instance(
-//            this,
-//             config,
-//            getBuildType()
-//        ).apply {
-//            launchEpay(invoice)
-//        }
-//    }
-//    private fun getBuildType(): BuildType {
-//        return BuildType.DEBUG
-//    }
-//}
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding  //defining the binding class
@@ -153,6 +80,22 @@ class MainActivity : AppCompatActivity() {
             reset()
         }
 
+        binding.masterPass.setOnClickListener {
+            openPayment(
+                masterPass = MasterPass(
+                    token = "93e20834-f900-4e5c-8c31-160605aa522d",
+                    merchantName = "KcellEpay",
+                    session = "1b68b927-ce8b-42c0-bc6d-bd43de4e49c",
+                    isClientParticipation = true,
+                    isVisible = true,
+                    MasterPassAction = MasterPassAction(
+                        SaveCard = true,
+                        updateSaveCard = false,
+                        recurring = false
+                    )
+                )
+            )
+        }
         binding.debugRadioButton.isChecked = true
 
         binding.monthlyRadioButton.isChecked = true
