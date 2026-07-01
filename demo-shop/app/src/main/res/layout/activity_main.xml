@@ -71,35 +71,15 @@
             app:layout_constraintTop_toBottomOf="@id/merchantIdEditText" />
 
         <EditText
-            android:id="@+id/clientIdEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/hb_margin_large"
-            android:hint="Client ID"
-            app:layout_constraintEnd_toEndOf="@id/merchantNameEditText"
-            app:layout_constraintStart_toStartOf="@id/merchantNameEditText"
-            app:layout_constraintTop_toBottomOf="@id/merchantNameEditText" />
-
-        <EditText
-            android:id="@+id/clientSecretEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/hb_margin_large"
-            android:hint="Client Secret"
-            app:layout_constraintEnd_toEndOf="@id/clientIdEditText"
-            app:layout_constraintStart_toStartOf="@id/clientIdEditText"
-            app:layout_constraintTop_toBottomOf="@id/clientIdEditText" />
-
-        <EditText
             android:id="@+id/invoiceIdEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/hb_margin_large"
             android:hint="Invoice Id"
             android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="@id/clientSecretEditText"
-            app:layout_constraintStart_toStartOf="@id/clientSecretEditText"
-            app:layout_constraintTop_toBottomOf="@id/clientSecretEditText" />
+            app:layout_constraintEnd_toEndOf="@id/merchantNameEditText"
+            app:layout_constraintStart_toStartOf="@id/merchantNameEditText"
+            app:layout_constraintTop_toBottomOf="@id/merchantNameEditText" />
 
         <EditText
             android:id="@+id/amountEditText"
